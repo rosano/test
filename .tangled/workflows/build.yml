@@ -24,4 +24,4 @@ steps:
   - name: "Upload"
     command: $(npm config get prefix)/bin/surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" ./* "$SURFER_FOLDER"
     environment:
-      ALFA: bravo
+      ALFA: BRAVO
