@@ -22,6 +22,6 @@ steps:
   - name: "Install surfer"
     command: npm -g install cloudron-surfer
   - name: "Upload"
-    command: $(npm config get prefix)/bin/surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" ./* "$SURFER_FOLDER"
+    command: $(npm config get prefix)/bin/surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" ./* "alfa/bravo"
     environment:
       ALFA: BRAVO
