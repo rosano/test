@@ -22,6 +22,4 @@ steps:
   - name: "Upload with surfer"
     command: npm -g install cloudron-surfer && surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER"
     environment:
-      SURFER_TOKEN: ${{ secrets.SURFER_TOKEN }}
-      SURFER_HOST: ${{ secrets.SURFER_HOST }}
-      SURFER_FOLDER: ${{ secrets.SURFER_FOLDER }}
+      ALFA: bravo
