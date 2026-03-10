@@ -19,7 +19,9 @@ environment:
   NODE_ENV: "production"
 
 steps:
-  - name: "Upload with surfer"
-    command: npm -g install cloudron-surfer && surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER"
+  - name: "Install surfer"
+    command: npm -g install cloudron-surfer
+  - name: "Upload"
+    command: $(npm config get prefix)/bin/surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER"
     environment:
       ALFA: bravo
