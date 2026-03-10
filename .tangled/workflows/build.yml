@@ -19,10 +19,8 @@ environment:
   NODE_ENV: "production"
 
 steps:
-  - name: "Install surfer"
-    command: "npm -g install cloudron-surfer"
-  - name: "Upload"
-    command: surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER"
+  - name: "Upload with surfer"
+    command: npm -g install cloudron-surfer && surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER
     environment:
       SURFER_TOKEN: ${{ secrets.SURFER_TOKEN }}
       SURFER_HOST: ${{ secrets.SURFER_HOST }}
