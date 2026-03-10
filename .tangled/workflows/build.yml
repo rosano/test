@@ -1,0 +1,29 @@
+when:
+  - event: ["push", "manual"]
+    branch: ["master"]
+  - event: ["pull_request"]
+    branch: ["master"]
+
+engine: "nixery"
+
+clone:
+  skip: false
+  depth: 1
+  submodules: false
+
+dependencies:
+  nixpkgs:
+    - nodejs
+
+environment:
+  NODE_ENV: "production"
+
+steps:
+  - name: "Install surfer"
+    command: "npm -g install cloudron-surfer"
+  - name: "Upload"
+    command: surfer put --token "$SURFER_TOKEN" --server "$SURFER_HOST" build/* "$SURFER_FOLDER"
+    environment:
+      SURFER_TOKEN: ${{ secrets.SURFER_TOKEN }}
+      SURFER_HOST: ${{ secrets.SURFER_HOST }}
+      SURFER_FOLDER: ${{ secrets.SURFER_FOLDER }}
